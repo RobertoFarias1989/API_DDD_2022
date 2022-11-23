@@ -38,7 +38,7 @@ namespace WebAPIs.Controllers
 
         [Authorize]
         [Produces("application/json")]
-        [HttpPost("/api/Update")]
+        [HttpPatch("/api/Update")]
         public async Task<List<Notifies>> Update(MessageViewModel message)
         {           
             var messageMap = _IMapper.Map<Message>(message);
@@ -49,7 +49,7 @@ namespace WebAPIs.Controllers
 
         [Authorize]
         [Produces("application/json")]
-        [HttpPost("/api/Delete")]
+        [HttpDelete("/api/Delete")]
         public async Task<List<Notifies>> Delete(MessageViewModel message)
         {            
             var messageMap = _IMapper.Map<Message>(message);
@@ -59,7 +59,7 @@ namespace WebAPIs.Controllers
 
         [Authorize]
         [Produces("application/json")]
-        [HttpPost("/api/GetEntityById")]
+        [HttpGet("/api/GetEntityById")]
         public async Task<MessageViewModel> GetEntityById(Message message)
         {            
             var messageMap = _IMapper.Map<MessageViewModel>(message);
@@ -69,7 +69,7 @@ namespace WebAPIs.Controllers
 
         [Authorize]
         [Produces("application/json")]
-        [HttpPost("/api/ListarMessageAtivas")]
+        [HttpGet("/api/ListarMessageAtivas")]
         public async Task<List<MessageViewModel>> ListarMessageAtivas()
         {
             var mensagens = await _IServiceMessage.ListarMessageAtivas();
